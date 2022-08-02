@@ -4,9 +4,19 @@
 
 {% block stylesheets %}
     <link href="{{ asset('pages/css/home.css') }}" rel="stylesheet"/>
+    
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('pages/js/app.js') }}" type="text/javascript"></script>
 {% endblock %}
 
 {% block body %}
+
+    <div class="loader">
+        <span class="lettre">Y</span>
+        <span class="lettre">O</span>
+    </div>
 
     <nav class="menu-container">
         <!-- burger menu -->
