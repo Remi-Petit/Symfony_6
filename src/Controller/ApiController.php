@@ -15,9 +15,19 @@ class ApiController {
         $this->client = $client;
     }
 
-    public function getPokemons(): array {
-        $Pokemons = $this->getAPI('pokemon/?limit=20');
-        return $Pokemons["results"];
+    public function getIdPokemons(): array {
+        $IdPokemons = $this->getAPI('pokemon/?limit=20');
+        return $IdPokemons["results"];
+    }
+
+    public function getInfosPokemon(): array {
+        $InfosPokemon = $this->getAPI('pokemon/1');
+        return $InfosPokemon;
+    }
+
+    public function getSpritePokemon(): array {
+        $SpritePokemon = $this->getInfosPokemon();
+        return $SpritePokemon["sprites"];
     }
 
     private function getAPI(string $var): array {

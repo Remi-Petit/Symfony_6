@@ -60,7 +60,7 @@
     
     <div class="">
         {% for id_pokemon in id_pokemons %}
-        <div>{{ id_pokemon.url }} {{ id_pokemon.name }}</div>
+        <div><img src="{{ sprite_pokemon.front_default }}">{{ id_pokemon.name }}</div>
         {% endfor %}
     </div>
 

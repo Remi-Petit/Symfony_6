@@ -10,9 +10,11 @@ class MainController extends AbstractController {
 
     /** * @Route("/") */
     public function home(ApiController $ApiController): Response {
-        //dd($ApiController->getPokemons());
+        //dd($ApiController->getSpritePokemon());
         return $this->render('pages/home.html.twig', [
-            'id_pokemons' => $ApiController->getPokemons(),
+            'id_pokemons' => $ApiController->getIdPokemons(),
+            'infos_pokemon' => $ApiController->getInfosPokemon(),
+            'sprite_pokemon' => $ApiController->getSpritePokemon(),
         ]);
     }
 
