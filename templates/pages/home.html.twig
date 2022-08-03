@@ -4,7 +4,6 @@
 
 {% block stylesheets %}
     <link href="{{ asset('pages/css/home.css') }}" rel="stylesheet"/>
-    
 {% endblock %}
 
 {% block javascripts %}
@@ -13,7 +12,7 @@
 
 {% block body %}
 
-    <div class="loader">
+    <div id="loader">
         <span class="lettre">Y</span>
         <span class="lettre">O</span>
     </div>
@@ -58,6 +57,12 @@
             </ul>
         </div>
     </nav>
+    
+    <div class="">
+        {% for id_pokemon in id_pokemons %}
+        <div>{{ id_pokemon.url }} {{ id_pokemon.name }}</div>
+        {% endfor %}
+    </div>
 
     <div class="container">
         <div><img src="{{ asset('images/1.png') }}" /></div>
