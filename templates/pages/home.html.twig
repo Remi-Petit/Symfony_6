@@ -58,19 +58,10 @@
         </div>
     </nav>
     
-    <div class="">
+    <div class="container">
         {% for id_pokemon in id_pokemons %}
         <div><img src="{{ sprite_pokemon.front_default }}">{{ id_pokemon.name }}</div>
         {% endfor %}
-    </div>
-
-    <div class="container">
-        <div><img src="{{ asset('images/1.png') }}" /></div>
-        <div><img src="{{ asset('images/2.png') }}" /></div>
-        <div><img src="{{ asset('images/3.jpg') }}" /></div>
-        <div><img src="{{ asset('images/4.jpg') }}" /></div>
-        <div><img src="{{ asset('images/5.jpg') }}" /></div>
-        <div><img src="{{ asset('images/6.jpg') }}" /></div>
     </div>
 
 {% endblock %}
