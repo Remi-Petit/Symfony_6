@@ -60,7 +60,19 @@
     
     <div class="container">
         {% for id_pokemon in id_pokemons %}
-        <div><img src="{{ sprite_pokemon.front_default }}">{{ id_pokemon.name }}</div>
+        <div><p>{{ id_pokemon.name }}</p></div>
+        {% endfor %}
+    </div>
+
+    <div class="container">
+        {% for id_pokemon in id_pokemons %}
+        <div><p>{{ id_pokemon.name }}</p></div>
+        {% endfor %}
+    </div>
+
+    <div>
+        {% for id_pokemon in id_pokemons %}
+        <div><p>{{ id_pokemon.name }} </p></div>
         {% endfor %}
     </div>
 
