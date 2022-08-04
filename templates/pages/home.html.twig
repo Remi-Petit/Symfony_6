@@ -59,20 +59,8 @@
     </nav>
     
     <div class="container">
-        {% for id_pokemon in id_pokemons %}
-        <div><p>{{ id_pokemon.name }}</p></div>
-        {% endfor %}
-    </div>
-
-    <div class="container">
-        {% for id_pokemon in id_pokemons %}
-        <div><p>{{ id_pokemon.name }}</p></div>
-        {% endfor %}
-    </div>
-
-    <div>
-        {% for id_pokemon in id_pokemons %}
-        <div><p>{{ id_pokemon.name }} </p></div>
+        {% for pokemon in pokemons %}
+        <div><img src="{{ pokemon.sprites.front_default }}"><p>{{ pokemon.name }}</p></div>
         {% endfor %}
     </div>
 
