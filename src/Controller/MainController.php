@@ -16,7 +16,7 @@ class MainController extends AbstractController {
         //dd($ApiController->getPokemons($limite));
         return $this->render('pages/home.html.twig', [
             'pokemons' => $ApiController->getPokemons($limite),
-            'infos_pokemon' => $ApiController->getInfosPokemon(),
+            //'infos_pokemon' => $ApiController->getInfosPokemon(),
         ]);
     }
 
