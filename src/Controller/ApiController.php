@@ -16,11 +16,7 @@ class ApiController {
     }
 
     public function getPokemons(int $var): array {
-        $InfoPokes = array();
-        for ($i = 1; $i <= $var; $i++) {
-            $Poke = $this->getAPI('pokemon/' . $i);
-            $InfoPokes[] = $Poke;
-        }
+        $InfoPokes = $this->getAPI('pokemon/?limit=' . $var)["results"];
         return $InfoPokes;
     }
 

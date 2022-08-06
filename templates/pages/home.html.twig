@@ -60,8 +60,19 @@
     
     <div class="container">
         {% for pokemon in pokemons %}
-        <div><img src="{{ pokemon.sprites.front_default }}"><p>{{ pokemon.name }}</p></div>
+        <div><p>{{ pokemon.name }}</p></div>
         {% endfor %}
     </div>
+
+
+    <script>
+    const container = document.querySelector('.container');
+    for (i = 0; i < container.children.length; i++) {
+        container.children.item(i).classList.add(i+1);
+        let image = document.createElement('img');
+        image.src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+ (i+1) +".png";
+        container.children.item(i).prepend(image);
+    }
+    </script>
 
 {% endblock %}
