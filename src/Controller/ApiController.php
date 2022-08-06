@@ -20,14 +20,14 @@ class ApiController {
         // 'https://pokeapi.co/api/v2/pokemon/?limit=$var  ($var étant ici 10)
         // Chacune de ces URLs contiennent les infos d'un Pokémon spécifique
         $URLs = array();
-        for ($i = 0; $i < $var; $i++) {
-            $URL = $this->getAPI('pokemon/?limit=' . $var);
-            $URL = $URL["results"][$i]["url"];
-            $URLs[] = $URL;
+        $URL = $this->getAPI('pokemon/?limit=' . $var);
+        for ($i = 0; $i < $var; $i++) {    
+            $URLpoke = $URL["results"][$i]["url"];
+            $URLs[] = $URLpoke;
         }
         // Ici, InfoPokes contient toute les infos relative aux URL qui correspondaient
         $InfoPokes = array();
-        for ($i = 0; $i < $var-1; $i++) {
+        for ($i = 0; $i < $var; $i++) {
             $Poke = $this->client->request(
                 'GET',
                 $URLs[$i]
