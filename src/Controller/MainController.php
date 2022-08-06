@@ -11,7 +11,7 @@ class MainController extends AbstractController {
     /** * @Route("/") */
     public function home(ApiController $ApiController): Response {
 
-        $limite = 10;
+        $limite = 898;
 
         //dd($ApiController->getPokemons($limite));
         return $this->render('pages/home.html.twig', [
