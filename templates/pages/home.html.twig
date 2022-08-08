@@ -11,68 +11,9 @@
 {% endblock %}
 
 {% block body %}
-
-    <div id="loader">
-        <span class="lettre">Y</span>
-        <span class="lettre">O</span>
-    </div>
-
-    <nav class="menu-container">
-        <!-- burger menu -->
-        <input type="checkbox" aria-label="Toggle menu" />
-        <span></span>
-        <span></span>
-        <span></span>
-
-        <!-- logo -->
-        <a href="/" class="menu-logo">
-            <img src="https://wweb.dev/resources/navigation-generator/logo-placeholder.png" alt="My Awesome Website"/>
-        </a>
-
-        <!-- menu items -->
-        <div class="menu">
-            <ul>
-            <li>
-                <a href="/">
-                Home
-                </a>
-            </li>
-            <li>
-                <a href="#pricing">
-                Pricing
-                </a>
-            </li>
-            </ul>
-            <ul>
-            <li>
-                <a href="#signup">
-                Sign-up
-                </a>
-            </li>
-            <li>
-                <a href="#login">
-                Login
-                </a>
-            </li>
-            </ul>
-        </div>
-    </nav>
     
     <div class="container">
-        {% for pokemon in pokemons %}
-        <div><p>{{ pokemon.name }}</p></div>
-        {% endfor %}
+        <h1>HOME</h1>
     </div>
-
-
-    <script>
-    const container = document.querySelector('.container');
-    for (i = 0; i < container.children.length; i++) {
-        container.children.item(i).classList.add(i+1);
-        let image = document.createElement('img');
-        image.src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+ (i+1) +".png";
-        container.children.item(i).prepend(image);
-    }
-    </script>
 
 {% endblock %}

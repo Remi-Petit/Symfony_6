@@ -25,6 +25,11 @@ class ApiController {
         return $InfosPokemon;
     }
 
+    public function getPokemonPlus(string $id): array {
+        $InfosPokemon = $this->getAPI('pokemon-species/' . $id);
+        return $InfosPokemon;
+    }
+
     private function getAPI(string $var): array {
         $response = $this->client->request(
             'GET',

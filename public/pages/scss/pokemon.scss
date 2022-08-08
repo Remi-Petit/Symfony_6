@@ -1,0 +1,26 @@
+h1 {
+	text-align: center;
+}
+  
+.container {
+	width: 100%;
+	max-width: 1280px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 30% 70%;
+}
+
+.container-l {
+	width: 100%;
+	display: flex;
+	background-color: aqua;
+
+	img {
+		width: 100%;
+	}
+}
+
+.container-r {
+	width: 100%;
+	background-color: greenyellow;
+}
