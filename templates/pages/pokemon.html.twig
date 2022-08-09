@@ -25,6 +25,15 @@
                 <p>phrase : {{ info.flavor_text_entries[16].flavor_text }}</p>
                 <p>height : {{ pokemon.height / 10 }} m</p>
                 <p>weight : {{ pokemon.weight / 10 }} kg</p>
+
+                <p>types :
+                {% for i in range(1, pokemon.types|length) %}
+                <p class="type {{ pokemon.types[i - 1].type.name }}">{{ pokemon.types[i - 1].type.name }}</p>
+                {% endfor %}
+                </p>
+
+
+                
             </div>
 
         </div>
