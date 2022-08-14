@@ -30,6 +30,28 @@ class ApiController {
         return $InfosPokemon;
     }
 
+    public function getPokemonEvolutions(string $url): array {
+        $PokeEvolution = $this->client->request(
+            'GET',
+            $url
+        );
+        $PokeEvolution = $PokeEvolution->toArray();
+        $Evolution = array();
+        // EVOLUTION 1
+        $Evolution[] = $PokeEvolution["chain"]["species"];
+        // EVOLUTION 2
+        if (isset($PokeEvolution["chain"]["evolves_to"][0]["species"])) {
+            $Evolution[] = $PokeEvolution["chain"]["evolves_to"][0]["species"];
+        }
+        // EVOLUTION 3
+        if (isset($PokeEvolution["chain"]["evolves_to"][0]["evolves_to"][0]["species"])) {
+            $Evolution[] = $PokeEvolution["chain"]["evolves_to"][0]["evolves_to"][0]["species"];
+        }
+
+        return $Evolution;
+        return $PokeEvolution->toArray();
+    }
+
     private function getAPI(string $var): array {
         $response = $this->client->request(
             'GET',

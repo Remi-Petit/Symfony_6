@@ -16,7 +16,7 @@ class MainController extends AbstractController {
     /** * @Route("/pokemons") */
     public function pokemons(ApiController $ApiController): Response {
 
-        $limite = 60; //898 le max
+        $limite = 100; //898 le max
 
         //dd($ApiController->getPokemons($limite));
         return $this->render('pages/pokemons.html.twig', [
@@ -26,10 +26,14 @@ class MainController extends AbstractController {
 
     /** * @Route("/pokemon/{id}") */
     public function pokemon(ApiController $ApiController, string $id): Response {
-        //dd($ApiController->getPokemon($id));
+
+        $evolution_family = $ApiController->getPokemonPlus($id)["evolution_chain"]["url"];
+
+        //dd($ApiController->getPokemonEvolutions($evolution_family));
         return $this->render('pages/pokemon.html.twig', [
             'pokemon' => $ApiController->getPokemon($id),
             'info' => $ApiController->getPokemonPlus($id),
+            'evolutions' => $ApiController->getPokemonEvolutions($evolution_family),
         ]);
     }
 
