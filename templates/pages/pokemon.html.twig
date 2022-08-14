@@ -34,6 +34,12 @@
                     <p class="type {{ pokemon.types[i - 1].type.name }}">{{ pokemon.types[i - 1].type.name }}</p>
                     {% endfor %}
                     </p>
+                    <br>
+                    <p>base hapiness : {{ info.base_happiness }}</p>
+                    <p>capture rate : {{ info.capture_rate }}</p>
+                    <p>egg groupe : {{ info.egg_groups[0].name }}</p>
+                    <p>capture rate : {{ info.capture_rate }}</p>
+                    <br>
                 </div>
             </div>
         </div>
@@ -41,10 +47,11 @@
         <div class="evolution">
             <p>EVOLUTIONS</p>
             {% for i in range(0, (evolutions|length)-1) %}
-            <div>
-                <img src="{{ pokemon.sprites.front_default }}" alt="image pokemon.name"/>
-                <p>{{ evolutions[i].name }}</p>
-            </div>
+                <div>
+                    {% if evolutions[i] == pokemon.name %}{{ i + 1 }}{% endif %}
+                    <img src="{{ evolutions[i][1] }}"/>
+                    <p>{{ evolutions[i][0] }}</p>
+                </div>
             {% endfor %}
         </div>
         

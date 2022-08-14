@@ -38,18 +38,29 @@ class ApiController {
         $PokeEvolution = $PokeEvolution->toArray();
         $Evolution = array();
         // EVOLUTION 1
-        $Evolution[] = $PokeEvolution["chain"]["species"];
+        $Evolution[] = $PokeEvolution["chain"]["species"]["name"];
         // EVOLUTION 2
         if (isset($PokeEvolution["chain"]["evolves_to"][0]["species"])) {
-            $Evolution[] = $PokeEvolution["chain"]["evolves_to"][0]["species"];
+            $Evolution[] = $PokeEvolution["chain"]["evolves_to"][0]["species"]["name"];
         }
         // EVOLUTION 3
         if (isset($PokeEvolution["chain"]["evolves_to"][0]["evolves_to"][0]["species"])) {
-            $Evolution[] = $PokeEvolution["chain"]["evolves_to"][0]["evolves_to"][0]["species"];
+            $Evolution[] = $PokeEvolution["chain"]["evolves_to"][0]["evolves_to"][0]["species"]["name"];
+        }
+        $InfoPokes = array();
+        for ($i = 0; $i < count($Evolution); $i++) {
+            $Poke = $this->client->request(
+                'GET',
+                'https://pokeapi.co/api/v2/pokemon/' . $Evolution[$i]
+            );
+            $Poke = $Poke->toArray();
+            $Info = array();
+            $Info[] = $Poke["name"];
+            $Info[] = $Poke["sprites"]["front_default"];
+            $InfoPokes[] = $Info;
         }
 
-        return $Evolution;
-        return $PokeEvolution->toArray();
+        return $InfoPokes;
     }
 
     private function getAPI(string $var): array {
