@@ -13,10 +13,10 @@ class MainController extends AbstractController {
         return $this->render('pages/home.html.twig');
     }
 
-    /** * @Route("/pokemons") */
+    /** * @Route("/pokemon") */
     public function pokemons(ApiController $ApiController): Response {
 
-        $limite = 100; //898 le max
+        $limite = 50; //898 le max
 
         //dd($ApiController->getPokemons($limite));
         return $this->render('pages/pokemons.html.twig', [
@@ -37,17 +37,4 @@ class MainController extends AbstractController {
         ]);
     }
 
-    /** * @Route("/lucky/number") */
-    public function number(): Response {
-        $number = random_int(0, 100);
-
-        return $this->render('pages/number.html.twig', [
-            'number' => $number,
-        ]);
-    }
-
-    /** * @Route("/produit") */
-    public function yolo(): Response {
-        return $this->render('pages/produit.html.twig');
-    }
 }

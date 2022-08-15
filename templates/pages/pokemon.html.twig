@@ -13,48 +13,108 @@
 {% block body %}
     
     <div class="container">
-        
+
+        <h1>{{ pokemon.name }}</h1>      
+
         <div class="grid-3-7">
             <div class="container-l">
                 <img src="{{ pokemon.sprites.front_default }}" alt="image pokemon.name"/>
+                <span class="ID">{{ pokemon.id }}</span>
             </div>
 
             <div class="container-r">
-                <h1>{{ pokemon.name }}</h1>
+                <p class="intro">{{ info.flavor_text_entries[16].flavor_text }}</p>
 
-                <div class="information">
-                    <p>phrase : {{ info.flavor_text_entries[16].flavor_text }}</p>
-                    <p>height : {{ pokemon.height / 10 }} m</p>
-                    <p>weight : {{ pokemon.weight / 10 }} kg</p>
-                    <br>
-                    <p>ID : {{ pokemon.id }}</p>
-                    <br>
-                    <p>types :
-                    {% for i in range(1, pokemon.types|length) %}
-                    <p class="type {{ pokemon.types[i - 1].type.name }}">{{ pokemon.types[i - 1].type.name }}</p>
-                    {% endfor %}
-                    </p>
-                    <br>
-                    <p>base hapiness : {{ info.base_happiness }}</p>
-                    <p>capture rate : {{ info.capture_rate }}</p>
-                    <p>egg groupe : {{ info.egg_groups[0].name }}</p>
-                    <p>capture rate : {{ info.capture_rate }}</p>
-                    <br>
+                <div class="infos">
+                    <h2>Information</h2>
+                    <div class="left">
+                        <p>height : {{ pokemon.height / 10 }} m</p>
+                        <p>weight : {{ pokemon.weight / 10 }} kg</p>
+                        <p>base hapiness : {{ info.base_happiness }}</p>
+                    </div>
+                    <div class="rigth">
+                        <p>capture rate : {{ info.capture_rate }}</p>
+                        <p>egg groupe : {{ info.egg_groups[0].name }}</p>
+                        <p>habitat : {{ info.habitat.name }}</p>
+                    </div>
                 </div>
+
+                <div class="abilities">
+                    <h2>Abilities</h2>
+                    <div>
+                        {% for i in range(0, (pokemon.abilities|length) - 1) %}
+                            {% if (pokemon.abilities[i].is_hidden == true) %}<br><p>hidden ability :</p>{% endif %}
+                            <p {% if (pokemon.abilities[i].is_hidden == true) %}class="is_hidden"{% endif %}>{{ pokemon.abilities[i].ability.name }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="types">
+                    <h2>Types</h2> 
+                    <div>
+                        {% for i in range(1, pokemon.types|length) %}
+                            <p class="type {{ pokemon.types[i - 1].type.name }}">{{ pokemon.types[i - 1].type.name }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                {% if (info.is_legendary == true) %} 
+                    <div class="legendary">
+                        <span>LEGENDARY<span>
+                    </div>
+                {% endif %}
+
+                {% if (info.is_mythical == true) %} 
+                    <div class="mythical">
+                        <span>mythical<span>
+                    </div>
+                {% endif %}
+
             </div>
         </div>
 
         <div class="evolution">
-            <p>EVOLUTIONS</p>
-            {% for i in range(0, (evolutions|length)-1) %}
-                <div>
-                    {% if evolutions[i] == pokemon.name %}{{ i + 1 }}{% endif %}
-                    <img src="{{ evolutions[i][1] }}"/>
-                    <p>{{ evolutions[i][0] }}</p>
-                </div>
-            {% endfor %}
+            <h2>EVOLUTIONS</h2>
+            <div>
+                {% for i in range(0, (evolutions|length)-1) %}
+                    <div {% if evolutions[i][0] == pokemon.name %} style="width=200px;" {% endif %}>
+                        <img src="{{ evolutions[i][1] }}"/>
+                        <p>{{ evolutions[i][0] }}</p>
+                    </div>
+                    {% if (evolutions|length == 3 and i != 2) %}
+                    <span>></span>
+                    {% endif %}
+                    {% if (evolutions|length == 2 and i != 1) %}
+                    <span>></span>
+                    {% endif %}
+                {% endfor %}
+            </div>
         </div>
-        
+
+        <div class="statistiques">
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="6"><h2>STATISTIQUES<h2></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PV</td>
+                        <td>Attaque</td>
+                        <td>Défense</td>
+                        <td>Attaque Spéciale</td>
+                        <td>Défense Spéciale</td>
+                        <td>Vitesse</td>
+                    </tr>
+                    <tr>
+                        {% for i in range(0, 5) %}
+                        <td>{{ pokemon.stats[i].base_stat }}</td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>        
     </div>
 
 {% endblock %}

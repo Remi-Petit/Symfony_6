@@ -7,31 +7,134 @@ h1 {
   max-width: 1280px;
   margin: 0 auto;
 }
-
-.grid-3-7 {
+.container .grid-3-7 {
   display: grid;
   grid-template-columns: 30% 70%;
 }
-
-.container-l {
+.container .container-l {
   width: 100%;
   display: flex;
-  background-color: aqua;
+  background-color: rgb(131, 131, 175);
 }
-.container-l img {
+.container .container-l img {
   width: 100%;
+  height: 60%;
+  object-fit: contain;
+  margin: 0 auto;
+  margin-top: 2em;
 }
-
-.evolution {
+.container .container-l .ID {
+  position: absolute;
+  background-color: white;
+  color: rgb(255, 153, 0);
+  font-weight: bold;
+  margin: 0.5em;
+  padding: 1.4em;
+  border-radius: 40%;
+  border: solid black 3px;
+}
+.container .container-r {
   width: 100%;
-  height: 100px;
-  background-color: #7038F8;
+  background-color: whitesmoke;
+  padding: 1em;
+}
+.container .container-r .intro {
   text-align: center;
+  padding: 0.5em;
 }
-
-.container-r {
+.container .container-r .infos {
+  background-color: #6890F0;
+  width: 70%;
+  border-radius: 40px;
+  padding: 1em;
+  margin: 0 auto;
+  margin-top: 0.5em;
+  display: flex;
+}
+.container .container-r .infos h2 {
   width: 100%;
-  background-color: greenyellow;
+  position: relative;
+  top: 20px;
+}
+.container .container-r .infos div {
+  width: 100%;
+}
+.container .container-r .infos div p {
+  padding: 0.2em;
+}
+.container .container-r .abilities {
+  background-color: rgb(153, 255, 187);
+  width: 70%;
+  border-radius: 40px;
+  padding: 1em;
+  margin: 0 auto;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  display: flex;
+}
+.container .container-r .abilities h2 {
+  position: relative;
+  top: 20px;
+}
+.container .container-r .abilities div, .container .container-r .abilities h2 {
+  width: 100%;
+}
+.container .container-r .abilities .is_hidden {
+  width: 200px;
+  text-align: center;
+  background-color: rgb(102, 0, 102);
+  color: white;
+  padding: 0.5em;
+  border-radius: 15px;
+}
+.container .container-r .types {
+  background-color: rgb(255, 194, 153);
+  width: 70%;
+  border-radius: 40px;
+  padding: 1em;
+  margin: 0 auto;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  display: flex;
+}
+.container .container-r .types div, .container .container-r .types h2 {
+  width: 100%;
+}
+.container .evolution {
+  width: 100%;
+  background-color: rgb(209, 209, 224);
+  text-align: center;
+  padding: 0.5em;
+}
+.container .evolution div {
+  display: flex;
+  margin: 0 auto;
+}
+.container .evolution div span {
+  font-weight: bold;
+  font-size: 200%;
+  position: relative;
+  top: 40px;
+}
+.container .evolution div div {
+  display: grid;
+  background-color: #705848;
+  border-radius: 25px;
+}
+.container .evolution div div img {
+  width: 100px;
+}
+.container .evolution div div p {
+  background-color: #A8A878;
+}
+.container .statistiques {
+  background-color: rgb(225, 225, 234);
+}
+.container .statistiques table {
+  margin: 0 auto;
+}
+.container .statistiques table tbody td {
+  padding: 0.5em;
 }
 
 /* TYPES POKEMON */
@@ -116,5 +219,41 @@ h1 {
 }
 
 /* FIN TYPES POKEMON */
+@media screen and (max-width: 900px) {
+  .grid-3-7 {
+    display: flex !important;
+    flex-direction: column;
+  }
+  .grid-3-7 .container-l img {
+    width: 35%;
+  }
+  .infos {
+    display: flex;
+    flex-direction: column;
+  }
+  .infos h2 {
+    position: static !important;
+  }
+  .abilities {
+    display: flex;
+    flex-direction: column;
+  }
+  .abilities h2 {
+    position: static !important;
+  }
+  .types {
+    display: flex;
+    flex-direction: column;
+  }
+  .types p {
+    margin: 0.5em;
+  }
+  .types h2 {
+    position: static !important;
+  }
+  .lettre {
+    font-size: 35px;
+  }
+}
 
 /*# sourceMappingURL=pokemon.css.map */

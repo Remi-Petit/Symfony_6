@@ -2,8 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22>{{ asset('pages/css/main.css') }}</text></svg>">
+        <title>{% block title %}Pokemon !{% endblock %}</title>
+        <link rel="icon" href="{{ asset('images/favicon.ico') }}"/>
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         <link href="{{ asset('pages/css/main.css') }}" rel="stylesheet"/>
         
@@ -13,8 +13,16 @@
     </head>
     <body>
             <div id="loader">
-        <span class="lettre">Y</span>
-        <span class="lettre">O</span>
+        <span class="lettre">C</span>
+        <span class="lettre">H</span>
+        <span class="lettre">A</span>
+        <span class="lettre">R</span>
+        <span class="lettre">G</span>
+        <span class="lettre">E</span>
+        <span class="lettre">M</span>
+        <span class="lettre">E</span>
+        <span class="lettre">N</span>
+        <span class="lettre">T</span>
     </div>
 
     <nav class="menu-container">
@@ -38,25 +46,8 @@
                 </a>
             </li>
             <li>
-                <a href="/pokemons">
-                Pokemons
-                </a>
-            </li>
-            <li>
-                <a href="/Tpokemons">
-                Test
-                </a>
-            </li>
-            </ul>
-            <ul>
-            <li>
-                <a href="#signup">
-                Sign-up
-                </a>
-            </li>
-            <li>
-                <a href="#login">
-                Login
+                <a href="/pokemon">
+                Pokemon
                 </a>
             </li>
             </ul>

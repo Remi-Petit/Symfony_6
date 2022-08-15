@@ -1,0 +1,114 @@
+{# templates/lucky/number.html.twig #} 
+
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <link href="{{ asset('pages/css/pokemon.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('pages/js/app.js') }}" type="text/javascript"></script>
+{% endblock %}
+
+{% block body %}
+    
+    <div class="container">
+        
+        <div class="grid-3-7">
+            <div class="container-l">
+                <img src="{{ pokemon.sprites.front_default }}" alt="image pokemon.name"/>
+            </div>
+
+            <div class="container-r">
+                <h1>{{ pokemon.name }}</h1>
+
+                <div class="information">
+                    <p>phrase : {{ info.flavor_text_entries[16].flavor_text }}</p>
+                    <p>height : {{ pokemon.height / 10 }} m</p>
+                    <p>weight : {{ pokemon.weight / 10 }} kg</p>
+                    <br>
+                    <p>ID : {{ pokemon.id }}</p>
+                    <br>
+                    <p>types :
+                    {% for i in range(1, pokemon.types|length) %}
+                    <p class="type {{ pokemon.types[i - 1].type.name }}">{{ pokemon.types[i - 1].type.name }}</p>
+                    {% endfor %}
+                    </p>
+                    <br>
+                    <p>base hapiness : {{ info.base_happiness }}</p>
+                    <p>capture rate : {{ info.capture_rate }}</p>
+                    <p>egg groupe : {{ info.egg_groups[0].name }}</p>
+                    <p>is_legendary : {{ info.is_legendary }}</p>
+                    <p>is_mythical : {{ info.is_mythical }}</p>
+                    <p>has_gender_differences : {{ info.has_gender_differences }}</p>
+                    <p>habitat : {{ info.habitat.name }}</p>
+                    <br>
+                    <p>abilities : 
+                    {% for i in range(0, (pokemon.abilities|length) - 1) %}
+                    <p {% if (pokemon.abilities[i].is_hidden == true) %}class="is_hidden"{% endif %}>{{ pokemon.abilities[i].ability.name }}</p>
+                    {% endfor %}
+                    </p>
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <div class="evolution">
+            <p>EVOLUTIONS</p>
+            {% for i in range(0, (evolutions|length)-1) %}
+                <div>
+                    {% if evolutions[i] == pokemon.name %}{{ i + 1 }}{% endif %}
+                    <img src="{{ evolutions[i][1] }}"/>
+                    <p>{{ evolutions[i][0] }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="statistiques">
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="6">STATISTIQUES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PV</td>
+                        <td>Attaque</td>
+                        <td>Défense</td>
+                        <td>Attaque Spéciale</td>
+                        <td>Défense Spéciale</td>
+                        <td>Vitesse</td>
+                    </tr>
+                    <tr>
+                        {% for i in range(0, 5) %}
+                        <td>{{ pokemon.stats[i].base_stat }}</td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="moves">
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="6">MOVES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Name</td>
+                    </tr>
+                    {% for i in range(0, (pokemon.moves|length) - 1) %}
+                    <tr>
+                        <td>{{ pokemon.moves[i].move.name }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+
+{% endblock %}
