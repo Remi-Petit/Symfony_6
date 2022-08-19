@@ -11,4 +11,10 @@ Allez dans votre CMD (invite de commande) et faites les commandes suivantes :
 
 **1)** cd emplacement_du_projet
 
-Par exemple, pour moi c'est : cd C:\Users\User\Desktop\Symfony_6\First
+**2)** symfony server:start
+
+## A savoir
+
+Ce projet contient plusieurs pages, une page Home pour donner des informations concernant le projet, une page Pokemon avec la liste de 898 pokémon existant et enfin une page avec plus d'informations les concernants (une sorte de Pokédex..)
+
+Le projet utilise une API, accessible depuis ce site : ** https://pokeapi.co/ **
