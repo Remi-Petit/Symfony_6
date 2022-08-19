@@ -16,7 +16,7 @@ class MainController extends AbstractController {
     /** * @Route("/pokemon") */
     public function pokemons(ApiController $ApiController): Response {
 
-        $limite = 50; //898 le max
+        $limite = 898; //898 le max
 
         //dd($ApiController->getPokemons($limite));
         return $this->render('pages/pokemons.html.twig', [

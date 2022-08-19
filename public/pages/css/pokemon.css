@@ -6,6 +6,7 @@ h1 {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
+  padding-bottom: 2em;
 }
 .container .grid-3-7 {
   display: grid;
@@ -53,8 +54,6 @@ h1 {
 }
 .container .container-r .infos h2 {
   width: 100%;
-  position: relative;
-  top: 20px;
 }
 .container .container-r .infos div {
   width: 100%;
@@ -71,10 +70,6 @@ h1 {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   display: flex;
-}
-.container .container-r .abilities h2 {
-  position: relative;
-  top: 20px;
 }
 .container .container-r .abilities div, .container .container-r .abilities h2 {
   width: 100%;
@@ -121,6 +116,10 @@ h1 {
   background-color: #705848;
   border-radius: 25px;
 }
+.container .evolution div div a {
+  text-decoration: none;
+  color: black;
+}
 .container .evolution div div img {
   width: 100px;
 }
@@ -132,9 +131,31 @@ h1 {
 }
 .container .statistiques table {
   margin: 0 auto;
+  border: solid black 2px;
+  height: auto;
 }
 .container .statistiques table tbody td {
   padding: 0.5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  width: 70px;
+  text-align: center;
+}
+.container .statistiques table tbody .max-height {
+  background-color: rgb(0, 217, 255);
+  height: 255px;
+  animation: grandir 2s;
+}
+@keyframes grandir {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: 255px;
+  }
+}
+.container .statistiques table tbody .max-height .stats {
+  background-color: gray;
 }
 
 /* TYPES POKEMON */

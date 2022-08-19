@@ -23,7 +23,7 @@
             </div>
 
             <div class="container-r">
-                <p class="intro">{{ info.flavor_text_entries[16].flavor_text }}</p>
+                <p class="intro">{{ info.flavor_text_entries[0].flavor_text }}</p>
 
                 <div class="infos">
                     <h2>Information</h2>
@@ -35,7 +35,9 @@
                     <div class="rigth">
                         <p>capture rate : {{ info.capture_rate }}</p>
                         <p>egg groupe : {{ info.egg_groups[0].name }}</p>
+                        {% if (info.habitat.name is defined) %}
                         <p>habitat : {{ info.habitat.name }}</p>
+                        {% endif %}
                     </div>
                 </div>
 
@@ -50,7 +52,7 @@
                 </div>
 
                 <div class="types">
-                    <h2>Types</h2> 
+                    <h2>Type</h2> 
                     <div>
                         {% for i in range(1, pokemon.types|length) %}
                             <p class="type {{ pokemon.types[i - 1].type.name }}">{{ pokemon.types[i - 1].type.name }}</p>
@@ -74,12 +76,14 @@
         </div>
 
         <div class="evolution">
-            <h2>EVOLUTIONS</h2>
+            <h2>DEVELOPMENTS</h2>
             <div>
                 {% for i in range(0, (evolutions|length)-1) %}
                     <div {% if evolutions[i][0] == pokemon.name %} style="width=200px;" {% endif %}>
-                        <img src="{{ evolutions[i][1] }}"/>
-                        <p>{{ evolutions[i][0] }}</p>
+                        <a href="/pokemon/{{ evolutions[i][0] }}">
+                            <img src="{{ evolutions[i][1] }}"/>
+                            <p>{{ evolutions[i][0] }}</p>
+                        </a>
                     </div>
                     {% if (evolutions|length == 3 and i != 2) %}
                     <span>></span>
@@ -95,21 +99,31 @@
             <table>
                 <thead>
                     <tr>
-                        <th colspan="6"><h2>STATISTIQUES<h2></th>
+                        <th colspan="6"><h2>STATISTICS<h2></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>PV</td>
-                        <td>Attaque</td>
-                        <td>Défense</td>
-                        <td>Attaque Spéciale</td>
-                        <td>Défense Spéciale</td>
-                        <td>Vitesse</td>
+                        <td>Home</td>
+                        <td>Attack</td>
+                        <td>Defense</td>
+                        <td>Special Attack</td>
+                        <td>Special Defense</td>
+                        <td>Speed</td>
                     </tr>
                     <tr>
                         {% for i in range(0, 5) %}
                         <td>{{ pokemon.stats[i].base_stat }}</td>
+                        {% endfor %}
+                    </tr>
+                    <tr>
+                        {% for i in range(0, 5) %}
+                        <td>
+                            <div class="max-height">
+                                <div class="stats" style="height:{{ 255 - pokemon.stats[i].base_stat }}px;">
+                                </div>
+                            </div>
+                        </td>
                         {% endfor %}
                     </tr>
                 </tbody>

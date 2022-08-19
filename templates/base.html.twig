@@ -50,16 +50,31 @@
                 Pokemon
                 </a>
             </li>
+            <li>
+                <input type="text" id="search" size="40" placeholder="ID or name of your pokemon">
+                <a id="go-search">
+                    <input type="submit" value="" style="background-image: url({{ asset('images/input-search-bg.png') }});background-position: center;background-repeat: no-repeat;color: white;background-color: orange;">
+                </a>
+            </li>
             </ul>
-        </div>
+        </div>        
     </nav>
-
-
         {% block body %}
         {% endblock %}
     </body>
 
     {% block javascripts %}
     {% endblock %}
+
+    <script>
+        document.addEventListener('keyup', logKey);
+
+        function logKey(e) {
+            let valeur = document.getElementById("search").value;
+            let href = document.getElementById("go-search");
+            href.setAttribute("href", "/pokemon/" + valeur );
+            logKey(e);
+        }
+    </script>
 
 </html>
