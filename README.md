@@ -1,5 +1,6 @@
 # Symfony_6
-Début d'apprentissage de Symfony 6, Twig et SCSS avec une API Pokemon
+Début d'apprentissage de Symfony 6, Twig et SCSS avec une API Pokemon.
+Méthode de travail MVC (Modèle Vue Controller).
 
 ## Télécharger Symfony 6
 
