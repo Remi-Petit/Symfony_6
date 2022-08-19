@@ -67,13 +67,16 @@
     {% endblock %}
 
     <script>
+        let valeur = document.getElementById("search").value;
+        let href = document.getElementById("go-search");
+        href.setAttribute("href", "/pokemon/" + valeur );
+
         document.addEventListener('keyup', logKey);
 
         function logKey(e) {
             let valeur = document.getElementById("search").value;
             let href = document.getElementById("go-search");
             href.setAttribute("href", "/pokemon/" + valeur );
-            logKey(e);
         }
     </script>
 

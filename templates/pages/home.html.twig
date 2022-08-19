@@ -13,7 +13,39 @@
 {% block body %}
     
     <div class="container">
-        <h1>HOME</h1>
+        <h1>Home</h1>
+        <h2>Introduction</h2>
+        <p>Étant mon premier projet Symfony, j'ai pû apprendre beaucoup de choses.</p>
+        <p>Ce que ce projet m'a appris/m'a apporté :</p>
+        <ul>
+            <li>Connaissance de Symfony</li>
+            <li>Méthode de travail MVC (Modèle Vue Controller)</li>
+            <li>Apprentissage SCSS</li>
+            <li>Utilisation d'une API en ligne</li>
+            <li>etc..</li>
+        </ul>
+        <h2>Que permet ce projet ?</h2>
+        <p>La page Pokemon donne accès à tout les Pokémon de l'API avec leur image et leur nom.</p>
+        <p>A savoir que l'API, en libre accès sur le site https://pokeapi.co/, est en anglais donc les noms et les informations le sont également.</p>
+        <p>Cliquer sur un Pokemon donne accès à ses informations dont sont ID, sa taille, son taux de capture, ses talents, son/ses type.s, évolution.s, statistiques...</p>
+        <br>
+        <p>Une barre de navigation est utilisable, nous pouvons rechercher un pokémon de par son ID ou bien par son nom (anglais bien entendu).</p>
+        <p>La liste comportant 898 pokemon.</p>
+        <h2>Au niveau de l'optimisation ?</h2>
+        <p>Pour la liste des Pokemon, bien que tous les pokémon y soient d'un coup, les performances sont les suivantes :</p>
+        <img src="{{ asset('images/liste-pokemon-opti.png') }}"/>
+        <p>L'astuce ici est que le site ne récupère pas les images les uns après les autres, nous aurions été rapidement limités si c'était le cas (environs 30 pokémons);</p>
+        <p>Un script JS affiche les images en fonction de l'URL qui leur était destinée.</p><br>
+        <p>Pour les informations d'un pokémon précis, ça demande plus de ressources (car plus d'informations) : </p>
+        <img src="{{ asset('images/pokemon-opti.png') }}"/>
+        <h2>Les plus ?</h2>
+        <p>D'une part, le projet est complètement Responsif, nous avons bien les informations pour chaque Pokémon et un écran de chargement de la page a été implémenter, celui-ci se finissant lors du chargement complet de la page.</p>
+        <h2>Les moins ?</h2>
+        <p>L'API donne accès à plus d'informations comme par exemple la liste des attaques utilisable par le Pokémon, la description du Pokémon en fonction des différents jeux etc..</p>
+        <p>Mais récupérer ces informations consomme trop de ressources.</p>
+        <p>Il est possible d'optimiser la liste des Pokémon avec l'apparition de ceux-ci en fonction du scroll sur la page, comme présenter sur cette merveilleuse vidéo :</p>
+        <p>https://www.youtube.com/watch?v=_vkOaH5QAJE</p>
+        <p>Ce faisant, la page aura moins de choses à charger dès le début.</p>
     </div>
 
 {% endblock %}

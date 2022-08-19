@@ -21,12 +21,25 @@ class ApiController {
     }
 
     public function getPokemon(string $id): array {
+        if ($id <= 0) {
+            header('Location: /');
+            exit();
+        }
         $InfosPokemon = $this->getAPI('pokemon/' . $id);
+        if ($InfosPokemon == null) {
+            header('Location: /');
+            exit();
+        }
         return $InfosPokemon;
     }
 
     public function getPokemonPlus(string $id): array {
+        if ($id <= 0) {
+            header('Location: /');
+            exit();
+        }
         $InfosPokemon = $this->getAPI('pokemon-species/' . $id);
+       
         return $InfosPokemon;
     }
 

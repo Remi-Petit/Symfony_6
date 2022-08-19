@@ -37,4 +37,9 @@ class MainController extends AbstractController {
         ]);
     }
 
+    /** * @Route("*") */
+    public function all(ApiController $ApiController): Response {
+        return $this->render('pages/home.html.twig');
+    }
+
 }
